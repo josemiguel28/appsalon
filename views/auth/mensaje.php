@@ -1,0 +1,1 @@
+<h1 class="nombre-pagina"> Confirmar Cuenta</h1><p class="descripcion-pagina"> Hemos enviado un correo a tu cuenta de email para que confirmes tu cuenta</p>

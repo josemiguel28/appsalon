@@ -1,0 +1,1 @@
+async function getCitas(){try{const t="http://localhost:3000/api/citas",a=await fetch(t);if(!a.ok)throw new Error(`HTTP error! status: ${a.status}`);return await a.json()}catch(t){console.log(t)}}

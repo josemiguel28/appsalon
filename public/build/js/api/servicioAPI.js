@@ -1,0 +1,1 @@
+async function consultarAPI(){try{const t="http://localhost:3000/api/servicios",o=await fetch(t);if(!o.ok)throw new Error(`HTTP error! status: ${o.status}`);return await o.json()}catch(t){console.log(t)}}export default consultarAPI;

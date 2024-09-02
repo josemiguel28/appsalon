@@ -1,0 +1,1 @@
+@use 'base/variables' as v;.seccion {  padding-top: v.$separacion;  display: none;  opacity: 0; // sección oculta  transition: opacity 0.5s ease-in-out; // transición suave de la opacidad  .text-center {    text-align: center;  }}.mostrar {  display: block;  opacity: 1; // sección visible}

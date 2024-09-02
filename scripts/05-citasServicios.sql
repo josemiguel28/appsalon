@@ -1,0 +1,1 @@
+create table citasServicios (    id int(11) not null auto_increment,    citaId int(11),    servicioId int(11),    primary key (id),    foreign key (citaId) references citas(id),    foreign key (servicioId) references servicios(id)) engine=InnoDB default charset=utf8;
