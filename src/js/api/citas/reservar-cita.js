@@ -37,7 +37,7 @@ async function reservarCita(cita) {
                 }).then(() => {
                     setTimeout(() => {
                         window.location.reload();
-                    },3000)
+                    },7000)
                 });
                 
                 return true;

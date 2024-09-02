@@ -24,6 +24,7 @@ $router->post("/recuperar", [RecoveryController::class, 'recuperarPassword']);
 //crear cuenta
 $router->get("/crear-cuenta", [LoginController::class, 'crearCuenta']);
 $router->post("/crear-cuenta", [LoginController::class, 'crearCuenta']);
+$router->post("/logout", [LoginController::class, 'logout']);
 
 //confirmar cuenta
 $router->get("/confirmar-cuenta", [LoginController::class, 'confirmar']);
