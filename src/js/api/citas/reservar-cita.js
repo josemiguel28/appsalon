@@ -39,6 +39,8 @@ async function reservarCita(cita) {
                         window.location.reload();
                     },3000)
                 });
+                
+                return true;
             }
         } catch (jsonError) {
             // Si el parseo falla, maneja el contenido como texto plano

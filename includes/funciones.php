@@ -13,15 +13,25 @@ function s($html) : string {
     return $s;
 }
 
+//funcion para verificar si un SERVER es igual a un POST
 function isPostBack() : bool
 {
     return $_SERVER["REQUEST_METHOD"] == "POST";
     
 }
 
+//funcion para mostrar una alerta al usuario, y redirigirlo a una pagina
 function redirectToWithMsg($url, $msg)
 {
     echo '<script>alert("' . $msg . '");';
     echo ' window.location.assign("' . $url . '");</script>';
     die();
 }
+
+//funcion para verificar si el usuario esta autenticado
+function isUserAuth() : void{
+    if(!isset($_SESSION["login"])){
+        header("Location: /");
+    }
+}
+
