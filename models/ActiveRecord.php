@@ -116,11 +116,18 @@ class ActiveRecord {
         return array_shift( $resultado ) ;
     }
 
+    //buscar un registro por su id
     public static function where($columna,$valor) {
         $query = "SELECT * FROM " . static::$tabla  ." WHERE {$columna} = '{$valor}' ";
         
         $resultado = self::consultarSQL($query);
         return array_shift( $resultado ) ;
+    }
+
+    //consulta plana de sql (utilizar cuando los metodos del modelo no son suficientes)
+    public static function SQL($query): array
+    {
+       return self::consultarSQL($query);
     }
 
     // Obtener Registros con cierta cantidad
