@@ -5,6 +5,7 @@ require_once __DIR__ . '/../includes/app.php';
 use Controller\AdminController;
 use Controller\APIController;
 use Controller\CitaController;
+use Controller\CreateAccount;
 use Controller\RecoveryController;
 use MVC\Router;
 use Controller\LoginController;
@@ -23,8 +24,8 @@ $router->get("/recuperar", [RecoveryController::class, 'recuperarPassword']);
 $router->post("/recuperar", [RecoveryController::class, 'recuperarPassword']);
 
 //crear cuenta
-$router->get("/crear-cuenta", [LoginController::class, 'crearCuenta']);
-$router->post("/crear-cuenta", [LoginController::class, 'crearCuenta']);
+$router->get("/crear-cuenta", [CreateAccount::class, 'crearCuenta']);
+$router->post("/crear-cuenta", [CreateAccount::class, 'crearCuenta']);
 $router->post("/logout", [LoginController::class, 'logout']);
 
 //confirmar cuenta

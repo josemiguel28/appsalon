@@ -138,7 +138,8 @@ class ActiveRecord {
     }
 
     // crea un nuevo registro
-    public function crear() {
+    public function crear(): array
+    {
         // Sanitizar los datos
         $atributos = $this->sanitizarAtributos();
 
