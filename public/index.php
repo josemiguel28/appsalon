@@ -5,8 +5,10 @@ require_once __DIR__ . '/../includes/app.php';
 use Controller\AdminController;
 use Controller\APIController;
 use Controller\CitaController;
+use Controller\ConfirmarCuenta;
 use Controller\CreateAccount;
-use Controller\RecoveryController;
+use Controller\PasswordResetController;
+use Controller\PasswordResetRequestController;
 use MVC\Router;
 use Controller\LoginController;
 
@@ -18,10 +20,10 @@ $router->post("/", [LoginController::class, 'login']);
 $router->get("/logout", [LoginController::class, 'logout']);
 
 //recuperar password
-$router->get("/olvide", [RecoveryController::class, 'olvidePassword']);
-$router->post("/olvide", [RecoveryController::class, 'olvidePassword']);
-$router->get("/recuperar", [RecoveryController::class, 'recuperarPassword']);
-$router->post("/recuperar", [RecoveryController::class, 'recuperarPassword']);
+$router->get("/olvide", [PasswordResetRequestController::class, 'requestReset']);
+$router->post("/olvide", [PasswordResetRequestController::class, 'requestReset']);
+$router->get("/recuperar", [PasswordResetController::class, 'changePassword']);
+$router->post("/recuperar", [PasswordResetController::class, 'changePassword']);
 
 //crear cuenta
 $router->get("/crear-cuenta", [CreateAccount::class, 'crearCuenta']);
@@ -29,8 +31,8 @@ $router->post("/crear-cuenta", [CreateAccount::class, 'crearCuenta']);
 $router->post("/logout", [LoginController::class, 'logout']);
 
 //confirmar cuenta
-$router->get("/confirmar-cuenta", [LoginController::class, 'confirmar']);
-$router->get("/mensaje", [LoginController::class, 'mensaje']);
+$router->get("/confirmar-cuenta", [ConfirmarCuenta::class, 'confirmarCuenta']);
+$router->get("/mensaje", [ConfirmarCuenta::class, 'mensaje']);
 
 //area privada
 $router->get("/cita",[CitaController::class,'index']);

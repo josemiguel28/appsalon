@@ -121,7 +121,7 @@ class ActiveRecord {
         $query = "SELECT * FROM " . static::$tabla  ." WHERE {$columna} = '{$valor}' ";
         
         $resultado = self::consultarSQL($query);
-        return array_shift( $resultado ) ;
+        return array_shift($resultado) ;
     }
 
     //consulta plana de sql (utilizar cuando los metodos del modelo no son suficientes)
