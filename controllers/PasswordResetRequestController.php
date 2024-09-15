@@ -14,6 +14,8 @@ class PasswordResetRequestController extends ActiveRecord
     {
         $alertas = [];
 
+        if (isPostBack()){
+
         $auth = new Usuario($_POST);
 
         $alertas = self::validarEmail($auth);
@@ -28,7 +30,7 @@ class PasswordResetRequestController extends ActiveRecord
             }
 
             self::processRequest($user);
-
+        }
             $alertas = Usuario::getAlertas();
             $router->render('auth/olvidePassword', ["alertas" => $alertas]);
         } else {
