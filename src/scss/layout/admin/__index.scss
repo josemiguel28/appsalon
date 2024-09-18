@@ -1,0 +1,79 @@
+@use 'base/variables' as v;
+
+.busqueda {
+  width: 80%;
+  margin: 0 auto;
+
+  label {
+    display: block;
+    font-size: 2rem;
+  }
+}
+
+.mostrar-citas {
+
+  .no-citas {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 10px;
+    font-weight: v.$bold;
+    font-size: 2.5rem;
+
+    span{
+      margin-left: 1.5rem;
+    }
+  }
+
+  .citas {
+    li {
+      display: flex;
+      flex-direction: column;
+      padding: 1rem;
+      border: 1px solid v.$gris;
+      background-color: v.$blanco;
+      margin-bottom: 1rem;
+      border-radius: 8px;
+
+      p {
+        font-size: 2rem;
+        color: v.$azul;
+        margin-bottom: 1px;
+        font-weight: v.$bold;
+
+        span {
+          font-weight: v.$regular;
+          color: v.$negro;
+        }
+
+      }
+
+      h3 {
+        color: v.$azul;
+        margin-top: 2rem;
+      }
+
+      .servicio {
+        color: v.$negroClaro;
+        margin-top: 0.5rem;
+      }
+
+
+
+
+    }
+
+    .total__pagar {
+      color: v.$negroClaro;
+      font-weight: normal;
+      padding-top: 10px;
+      font-size: 2.5rem;
+      margin-inline-start: auto;
+
+      #total {
+        color: v.$negroClaro;
+        font-weight: v.$bold;
+      }
+    }
+  }
+}

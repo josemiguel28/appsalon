@@ -1,0 +1,1 @@
+function iniciarApp(){filtrarCitasPorFecha()}function filtrarCitasPorFecha(){document.querySelector("#fecha").addEventListener("change",(function(n){const t=n.target.value;if(t){const n=`?filtro-fecha=${encodeURIComponent(t)}`;history.pushState(null,"",n),window.location.reload()}}))}document.addEventListener("DOMContentLoaded",(function(){iniciarApp()}));

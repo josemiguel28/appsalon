@@ -2,7 +2,7 @@
 
 require_once __DIR__ . '/../includes/app.php';
 
-use Controller\AdminController;
+use Controller\admin\AdminController;
 use Controller\APIController;
 use Controller\CitaController;
 use Controller\RecoveryController;
@@ -39,6 +39,10 @@ $router->get("/admin",[AdminController::class,'index']);
 $router->get("/api/servicios",[APIController::class,'index']);
 $router->post("/api/citas",[APIController::class,'guardarCita']);
 $router->get("/api/citas",[APIController::class,'guardarCita']);
+
+//api para filtrar las citas (admin panel)
+$router->get("/api/filtro-fecha",[APIController::class,'guardarCita']);
+
 
 // Comprueba y valida las rutas, que existan y les asigna las funciones del Controlador
 $router->comprobarRutas();

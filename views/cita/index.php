@@ -39,7 +39,7 @@
 								<label for="fecha">Fecha</label>
 								<input type="date"
 								       id="fecha"
-								       min="<?php echo date('Y-m-d') ?>"
+								       min="<?php echo $fechaActual ?>"
 								>
 						</div>
 
