@@ -1,6 +1,6 @@
 <?php
 
-namespace Controller;
+namespace Controller\citas;
 
 use Clases\Request;
 use MVC\Router;

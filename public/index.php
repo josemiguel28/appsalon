@@ -3,14 +3,14 @@
 require_once __DIR__ . '/../includes/app.php';
 
 use Controller\admin\AdminController;
-use Controller\APIController;
-use Controller\CitaController;
-use Controller\ConfirmarCuenta;
-use Controller\CreateAccount;
-use Controller\PasswordResetController;
-use Controller\PasswordResetRequestController;
+use Controller\api\APIController;
+use Controller\citas\CitaController;
+use Controller\auth\ConfirmarCuenta;
+use Controller\auth\CreateAccount;
+use Controller\auth\PasswordResetController;
+use Controller\auth\PasswordResetRequestController;
 use MVC\Router;
-use Controller\LoginController;
+use Controller\auth\LoginController;
 
 $router = new Router();
 
