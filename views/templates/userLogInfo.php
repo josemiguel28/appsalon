@@ -15,7 +15,7 @@
 	</div>
 </div>
 
-<?php isAdmin()  ?>
+<?php if ($_SESSION["admin"]): ?>
 
 <div class="barra-servicios">
 	<a href="/admin" class="boton">Ver citas</a>
@@ -23,4 +23,4 @@
 	<a href="/servicios/crear" class="boton">Nuevo servicio</a>
 </div>
 
-<?php ?>
+<?php endif; ?>

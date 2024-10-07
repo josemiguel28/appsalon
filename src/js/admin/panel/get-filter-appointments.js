@@ -1,6 +1,6 @@
 async function getAppointmentsWithFilter(filterDate) {
     try {
-        const url = `http://localhost:3000/api/admin/appointment?filtro-fecha=${filterDate}`;
+        const url = `/api/admin/appointment?filtro-fecha=${filterDate}`;
         const resultado = await fetch(url);
 
         if (!resultado.ok) {
