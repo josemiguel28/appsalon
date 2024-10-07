@@ -3,6 +3,7 @@
 namespace Controller\admin;
 
 use Clases\Request;
+use Controller\api\admin\AppointmentAPI;
 use MVC\models\AdminCita;
 use MVC\Router;
 
@@ -12,6 +13,10 @@ class AdminController
     {
         $session = new Request();
         $session->startSession();
+
+        //verifica si el admin esta loggeado para proteger la url
+        isAdmin();
+
         $userName = $session->session('nombre');
 
         date_default_timezone_set('America/Mexico_City');
@@ -23,7 +28,7 @@ class AdminController
 
         // Determinar qué método llamar según la presencia del filtro de fecha
         if (isset($filterDate) && !empty($filterDate)) {
-            $citas = self::appointmentFilterDate();
+            $citas = AppointmentAPI::filterDate();
             $fechaActual = $filterDate;
         } else {
             $citas = self::getTodayAppointments($fechaActual);
@@ -46,7 +51,7 @@ class AdminController
         );
     }
 
-    private static function getTodayAppointments($date)
+    public static function getTodayAppointments($date)
     {
         // Consultar la bd
         $admin = new AdminCita();

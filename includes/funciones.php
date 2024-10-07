@@ -35,11 +35,18 @@ function esUltimo(string $actual,string $ultimo) : bool{
     }
 }
 
-
 //funcion para verificar si el usuario esta autenticado
 function isUserAuth() : void{
     if(!isset($_SESSION["login"])){
         header("Location: /");
     }
 }
+
+function isAdmin(){
+    if(!isset($_SESSION["admin"]))
+    {
+        header("Location: /");
+    }
+}
+
 

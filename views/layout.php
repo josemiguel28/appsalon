@@ -7,7 +7,7 @@
 		<!--google fonts-->
 		<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;700;900&display=swap" rel="stylesheet">
 		<!--custom css link-->
-		<link rel="stylesheet" href="build/css/app.css">
+		<link rel="stylesheet" href="/build/css/app.css">
 
 </head>
 <body>

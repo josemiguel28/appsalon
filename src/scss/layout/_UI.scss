@@ -61,6 +61,16 @@
     @include m.tablet{
       overflow: scroll;
     }
+  }
+
+  .barra-servicios{
+    margin-bottom: v.$separacion;
+
+    @include m.tablet{
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+    }
 
   }
 }

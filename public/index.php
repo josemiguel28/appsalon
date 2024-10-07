@@ -2,15 +2,21 @@
 
 require_once __DIR__ . '/../includes/app.php';
 
-use Controller\admin\AdminController;
-use Controller\api\APIController;
-use Controller\citas\CitaController;
 use Controller\auth\ConfirmarCuenta;
 use Controller\auth\CreateAccount;
 use Controller\auth\PasswordResetController;
 use Controller\auth\PasswordResetRequestController;
-use MVC\Router;
 use Controller\auth\LoginController;
+
+use Controller\admin\AdminController;
+use Controller\admin\ServiciosController;
+
+use Controller\citas\CitaController;
+
+use Controller\api\APIController;
+use Controller\api\admin\AppointmentAPI;
+
+use MVC\Router;
 
 $router = new Router();
 
@@ -43,8 +49,16 @@ $router->get("/api/servicios",[APIController::class,'index']);
 $router->post("/api/citas",[APIController::class,'guardarCita']);
 $router->get("/api/citas",[APIController::class,'guardarCita']);
 
+//CRUD de servicios
+$router->get("/servicios", [ServiciosController::class, 'index']);
+$router->get("/servicios/crear", [ServiciosController::class, 'crearServicio']);
+$router->post("/servicios/crear", [ServiciosController::class, 'crearServicio']);
+$router->get("/servicios/actualizar", [ServiciosController::class, 'actualizarServicio']);
+$router->post("/servicios/actualizar", [ServiciosController::class, 'actualizarServicio']);
+$router->post("/servicios/eliminar", [ServiciosController::class, 'eliminarServicio']);
+
 //api para filtrar las citas (admin panel)
-$router->get("/api/filtro-fecha",[APIController::class,'guardarCita']);
+$router->get("/api/admin/appointment",[AppointmentAPI::class,'filterDate']);
 
 
 // Comprueba y valida las rutas, que existan y les asigna las funciones del Controlador

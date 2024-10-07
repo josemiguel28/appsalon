@@ -73,5 +73,5 @@
 </div>
 
 <?php
-$script = "<script src='build/js/admin/panel/filtrar-cita.js'></script>";
+$script = "<script type='module' src='build/js/admin/panel/filter-appointments.js'></script>";
 ?>
