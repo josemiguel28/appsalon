@@ -44,10 +44,16 @@ function actualizarVistaConCitas(citas) {
     let idCita = null; // Inicializa como null para detectar el primer caso
     let li = null; // Variable para almacenar el <li> actual
 
-    citas.forEach(cita => {
+        citas.forEach(cita => {
+        // Asegúrate de que cita.precio no es null o undefined
+        if (cita.precio == null) {
+            console.error(`Precio no válido para la cita con ID ${cita.id}`);
+            return;
+        }
+    
         // Asegúrate de que cita.precio es un número
         const precioServicio = parseFloat(cita.precio.toString().replace(/[^0-9.-]+/g, ""));
-
+    
         // Verifica si estamos en una nueva cita
         if (idCita !== cita.id) {
             // Si ya hay una cita anterior, añade el total
@@ -57,33 +63,33 @@ function actualizarVistaConCitas(citas) {
                 totalElement.innerHTML = `Total a pagar <span id="total">${number_format(totalPagar, 2)} L</span>`;
                 li.appendChild(totalElement);
             }
-
+    
             // Reiniciar el total para la nueva cita
             totalPagar = 0;
-
+    
             // Crea un nuevo <li> para la nueva cita
             li = document.createElement('li');
             li.innerHTML = `
-            <p>ID: <span>${htmlspecialchars(cita.id)}</span></p>
-            <p>Hora: <span>${htmlspecialchars(cita.hora)}</span></p>
-            <p>Fecha: <span>${htmlspecialchars(cita.fecha)}</span></p>
-            <p>Cliente: <span>${htmlspecialchars(cita.cliente)}</span></p>
-            <p>E-mail: <span>${htmlspecialchars(cita.email)}</span></p>
-            <p>Teléfono: <span>${htmlspecialchars(cita.telefono)}</span></p>
-            <h3>Servicios</h3>
-        `;
+                <p>ID: <span>${htmlspecialchars(cita.id)}</span></p>
+                <p>Hora: <span>${htmlspecialchars(cita.hora)}</span></p>
+                <p>Fecha: <span>${htmlspecialchars(cita.fecha)}</span></p>
+                <p>Cliente: <span>${htmlspecialchars(cita.cliente)}</span></p>
+                <p>E-mail: <span>${htmlspecialchars(cita.email)}</span></p>
+                <p>Teléfono: <span>${htmlspecialchars(cita.telefono)}</span></p>
+                <h3>Servicios</h3>
+            `;
             ul.appendChild(li);
-
+    
             // Establece el ID de la cita actual
             idCita = cita.id;
         }
-
+    
         // Agregar el servicio y el precio al total
         const servicioElement = document.createElement('p');
         servicioElement.className = 'servicio';
         servicioElement.innerHTML = `&#10003; ${htmlspecialchars(cita.servicio)} ${number_format(precioServicio, 2)} L`;
         li.appendChild(servicioElement);
-
+    
         // Acumular el precio del servicio
         totalPagar += precioServicio; // Asegúrate de acumular aquí también
     });
